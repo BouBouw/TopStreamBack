@@ -12,9 +12,12 @@ mysql.query(`CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(128) NOT NULL,
+    username VARCHAR(255) NOT NULL,
     resetId INT DEFAULT 0,
     accessLevel INT DEFAULT 0,
     createdTimestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+    verifiedAt BOOLEAN NOT NULL,
+    subscription INT DEFAULT 0,
 
     UNIQUE (email)
 )`);

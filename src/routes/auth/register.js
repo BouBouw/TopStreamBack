@@ -7,6 +7,7 @@ module.exports = [
 
         middlewares: [],
         requestListener: async function(req, res){
+            console.log(req.body)
             const results = await this.mysql.query("SELECT email FROM users WHERE email = ?", [req.body.email]);
             if(results.length > 0)
                 return res.status(200).json({
